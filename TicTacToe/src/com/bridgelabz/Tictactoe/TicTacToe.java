@@ -2,8 +2,9 @@ package com.bridgelabz.Tictactoe;
 
 import java.util.Scanner;
 
-public class Tictactoe {
+public class TicTacToe {
     static Scanner input = new Scanner(System.in);
+
     public static void main(String[] args) {
         char[] board = new char[10];
 
@@ -14,6 +15,8 @@ public class Tictactoe {
             board[i] = '-';
         }
         showboard(board);
+
+        whoPlaysFirst();
 
         char inputChoice = chooseLetter();
         System.out.println("Player has chosen " +inputChoice);
@@ -52,7 +55,19 @@ public class Tictactoe {
         else
             board[position] = inputCharUser;
     }
-}
-	
 
-	   
+    //Toss to check who plays first
+    public static String whoPlaysFirst() {
+        int randomNumber = (int) Math.floor(Math.random() * 10) % 2;
+        String player = "";
+
+        if(randomNumber == 1)
+            player = "User";
+        else
+            player = "Computer";
+
+        System.out.println("\n" + player + " starts first.");
+
+        return player;
+    }
+}  
