@@ -27,7 +27,7 @@ public class TicTacToe {
             showboard(board);
 
             char inputChoice = chooseLetter();
-            System.out.println("\n" + player + " has chosen " +inputChoice);
+            System.out.println("\n" + "Player has chosen " +inputChoice);
 
             playerPosition(inputChoice, board);
 
@@ -49,6 +49,20 @@ public class TicTacToe {
                     //If player1 is true, make it false, and vice versa; this way, the players alternate each turn
                     player1 = !player1;
                 }
+            }
+            while(gameEnded == true) {
+                System.out.println("Play another game? Y | N");
+                char option = input.next().charAt(0);
+
+                if(option == 'Y') {
+                    //Initilise the board with '-' to again start playing
+                    gameEnded = false;
+                    for (int i = 0; i < board.length; i++) {
+                            board[i] = '-';
+                        }
+                }
+                else
+                    break;
             }
         }
 
@@ -142,4 +156,3 @@ public class TicTacToe {
         return true;
     }
 }
-
